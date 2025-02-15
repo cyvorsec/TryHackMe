@@ -36,11 +36,11 @@ sudo nmap -sV -sC -O -T4 -vv -p 22,80 lookup.thm
 
 ![nmap](Images/nmap.png)
 
-Our first target would obviously be the Website on port 80, so lets visit it. Only thing we can see on the page is log in form, as we expected from NMAP results:
+Our first target would obviously be the Website on port 80, so lets visit it. The only thing we can see on the page is log in form, as we expected from NMAP results:
 
 ![login](Images/Login.png)
 
-We can check source code, robots.txt file, sitemap.xml... But nothing interesting there. Our next step would be to enumerate possbile dns subdomains and virtual hosts:
+We can check source code, robots.txt file, sitemap.xml... But nothing interesting there. Our next step would be to enumerate possible dns subdomains and virtual hosts:
 
 ```shell
 ffuf -u http://FUZZ.lookup.thm -c -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -fs 0
@@ -92,13 +92,13 @@ Now, let's try to log in... And... ***Yes! We did it!***
 
 ![](Images/elfinder.png)
 
-I use “Dark reader” extension for Firefox, so everyrhing in dark mode, to save my eyes... :) As you can see on the screenshot, we are now on different subdomain, so add it to ***/etc/hosts*** file.
+I use “Dark reader” extension for Firefox, so everyrhing is in dark mode, to save my eyes... :) As you can see on the screenshot, we are now on different subdomain, so add it to ***/etc/hosts*** file.
 
 The next thing we would look for is ***program name and version number***, so we can search for exploit. We can see there is a nice icon with question mark...
 
 ![](Images/version.png)
 
-We got the valuable info:  ***elFinder, Version: 2.1.47*** Before we continue, we can try SSH connection with these credentials, if the password is re-used on the system... This is an easy machine, but not that easy... :)
+We got the valuable info:  ***elFinder, Version: 2.1.47***. Before we continue, we can try SSH connection with these credentials, if the password is re-used on the system... This is an easy machine, but not that easy... :)
 
 # 2. Exploitation
 
@@ -117,7 +117,7 @@ This method is recommended if you prepare for OSCP exam, because you need to und
 
 https://www.exploit-db.com/exploits/46481
 
-This is Python2 script, so you should convert the code to Python3 if you have problems. When you analize the script, you see that you need the picture file ***SecSignal.jpg*** in the same folder as the scirpt, that will be uploded, and used for command injection.
+This is Python2 script, so you should convert the code to Python3 if you have problems. When you analize the script, you see that you need the picture file ***SecSignal.jpg*** in the same folder as the script, that will be uploded, and used for command injection.
 
 Make some regular ***.jpg*** file and run the script:
 
@@ -141,7 +141,7 @@ and made a nc listener.
 nc -lvnp 4444
 ```
 
-When we run the bash reverse shell on target machine we get much better shell which we need to further stabilizate, so it doesn't crash on “CTRL + C” command. You are probably familiar with these stabilization techinique:
+When we run the bash reverse shell on target machine we get much better shell which we need to further stabilizate, so it doesn't crash on “CTRL + C” command. You are probably familiar with this stabilization technique:
 
 ```shell
 python3 -c 'import pty;pty.spawn("/bin/bash")'
@@ -203,11 +203,11 @@ We can try “sudo -l”, Cronjobs... But only thing that stands out is ***SUID 
 
 ![](Images/suid_bit.png)
 
-When we run the command, we can see it calls “id” command to extract the username and user ID (UID) and then reads "/home/<user>/.passwords" file:
+When we run the command, we can see it calls “id” command to extract the username and user ID (UID) and then reads "/home/user/.passwords" file:
 
 ![](Images/id_command.png)
 
-And get our ID and username: www-data. But, the function “id” is called ***without absolute path***, so we can play with it...
+And gets our ID and username: www-data. But, the function “id” is called ***without absolute path***, so we can play with it...
 
 When we search for path of command "id":
 
@@ -217,7 +217,7 @@ which id
 
 We get: `/usr/bin/id`
 
-And if we print our PATH variable, we can see all the folders from which system search for the commands.
+And if we print our PATH variable, we can see all the folders from which system searches for the commands.
 
 ```shell
 echo $PATH
@@ -290,7 +290,7 @@ OK, it searches for characters or string in a file...Something similar to `grep`
 
 ![](Images/proof_look_user.png)
 
-***It works!*** Now, try it on a root flag, which is most probably in `/root/root.txt` file... We can see the flag format is radnom letters and numbers, so we can check if any number exist in `/root/root.txt` file. We will make a for loop:
+***It works!*** Now, try it on a root flag, which is most probably in `/root/root.txt` file... We can see the flag format is random letters and numbers, so we can check if any number exist in `/root/root.txt` file. We will make a for loop:
 
 ```shell
 for i in {1..9}; do sudo look $i /root/root.txt; done
@@ -310,7 +310,7 @@ We can now extract password hash from `/etc/shadow` file (and try to crack it wi
 
 # 4. Mitigation
 
-To mitigate risks we had in this CTF, developers should do the following:
+To mitigate the risks we had in this CTF, developers should do the following:
 
 1. Don't give users too much information when they log in to the platform. Attacker can use it! Even if the username is correct, but password is wrong, give the same message "Username or password is wrong!".
 2. Use strong passwords! Password for user "jose" in this CTF was too weak and could be brute forced using password list from earlier database breaches.
