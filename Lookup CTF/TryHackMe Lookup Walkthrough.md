@@ -28,4 +28,5 @@ Now we will check for port version, common scripts and OS information:
 sudo nmap -sV -sC -O -T4 -vv -p 22,80 lookup.thm
 ```
 
-![nmap](nmap.png)
+![nmap](Images/nmap.png)
+
