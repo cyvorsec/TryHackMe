@@ -1,6 +1,6 @@
 # ====================
 
-# LOOKUP CTF WRITEUP
+# LOOKUP CTF WRITE-UP
 
 # ====================
 
@@ -319,4 +319,4 @@ To mitigate the risks we had in this CTF, developers should do the following:
 
 # =========
 
-# ***Stay safe and see ya in the next writeup!***
+# ***Stay safe and see ya in the next write-up!***
