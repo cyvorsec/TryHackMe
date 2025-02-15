@@ -2,6 +2,8 @@
 
 # LOOKUP CTF WRITE-UP
 
+https://tryhackme.com/room/lookup
+
 # ====================
 
 ![](Images/lookup_image.png)
