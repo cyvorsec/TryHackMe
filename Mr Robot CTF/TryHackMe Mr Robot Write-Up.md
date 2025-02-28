@@ -22,7 +22,7 @@ We will use ***NMAP*** to enumerate open ports on the target machine (we can als
 sudo nmap -sS -T4 -vv -p- robot.thm
 ```
 
-We get two open ports: `HHTP` and `HTTPs` and one closed port `SSH`. So we won't be able to log in via SSH even if we get some credentials.
+We get two open ports: `HTTP` and `HTTPS` and one closed port `SSH`. So we won't be able to log in via SSH even if we get some credentials.
 
 ![](Images/2.png)
 
