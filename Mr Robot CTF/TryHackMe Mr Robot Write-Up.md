@@ -130,7 +130,7 @@ Start the nc listener on your attacking machine:
 nc -lvnp 1234
 ```
 
-Save changes by pressing **Update file** button. Request some page on the server that doesn't exists `http://robot.thn/adfdsf` and YES! We have reverse shell! Stabilize the shell with python method:
+Save changes by pressing **Update file** button. Request some page on the server that doesn't exists `http://robot.thm/adfdsf` and YES! We have reverse shell! Stabilize the shell with python method:
 
 ![](Images/14.png)
 
