@@ -108,7 +108,7 @@ Use the credentials to log in to the WordPress site and we are in:
 
 ![](Images/11.png)
 
-WordPress is based on php, so we need a php reverse shell to get to the system... The easyest way is to find some php page that we can call and execute our payload. We can use `404.php` page which is called when the page can't be found on the server (Appearance -> Editor -> 404 Template).
+WordPress is based on php, so we need a php reverse shell to get to the system... The easiest way is to find some php page that we can call and execute our payload. We can use `404.php` page which is called when the page can't be found on the server (Appearance -> Editor -> 404 Template).
 
 We can use the famous php reverse shell **pentestmonkey**:
 
