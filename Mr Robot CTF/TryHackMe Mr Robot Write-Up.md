@@ -168,3 +168,6 @@ Read the last `key-3-of-3.txt` file from `/root` directory and you get the third
 
 ![](Images/21.png)
 
+# =========
+
+# ***Stay safe and see ya in the next write-up!***
