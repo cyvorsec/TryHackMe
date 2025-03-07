@@ -2,7 +2,13 @@
 
 # LOOKUP CTF WRITE-UP
 
+Link to the TryHackMe room:
+
 https://tryhackme.com/room/lookup
+
+Check my YouTube Channel for video walkthrough:
+
+https://www.youtube.com/watch?v=_XUjM3J_eDc&list=PLCQqtmXy08Pz-XpVupEH8u9-P29SduMFB&index=3
 
 # ====================
 
