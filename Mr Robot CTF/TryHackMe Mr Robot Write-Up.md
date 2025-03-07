@@ -2,7 +2,13 @@
 
 # Mr Robot CTF WRITE-UP
 
+Link to the TryHackMe room:
+
 [https://tryhackme.com/room/lookup](https://tryhackme.com/room/mrrobot)
+
+Check my YouTube Channel for video walkthrough:
+
+https://www.youtube.com/watch?v=m2e6XtEgvns&list=PLCQqtmXy08Pz-XpVupEH8u9-P29SduMFB&index=2
 
 # ====================
 
